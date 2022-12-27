@@ -10,6 +10,7 @@ const passport=require("passport");
 const passportLocalMongoose=require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require("mongoose-findorcreate");
+const { before } = require('lodash');
 
 const app = express();
 
@@ -28,7 +29,18 @@ app.use(passport.session());
 
 
 
-mongoose.connect(process.env.DB_URL,{useNewUrlParser:true});
+// mongoose.connect(process.env.DB_URL,{useNewUrlParser:true});
+
+// When we use cyclic, we must first establish a mogodb connection before port listening.
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB_URL,{useNewUrlParser:true});
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
 
 const blogSchema=new mongoose.Schema({
   title:{
@@ -266,6 +278,13 @@ app.get("/myblog",function(req,res){
 })
 
 
-app.listen(process.env.PORT||3000, function() {
-  console.log("Server started on port "+process.env.PORT);
-});
+// app.listen(process.env.PORT||3000, function() {
+//   console.log("Server started on port "+process.env.PORT);
+// });
+
+// When we use cyclic, we must first establish a mogodb connection before port listening.
+connectDB().then(() => {
+  app.listen(process.env.PORT||3000, function() {
+    console.log("Server started on port "+process.env.PORT);
+  });
+})
