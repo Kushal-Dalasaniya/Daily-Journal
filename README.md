@@ -4,7 +4,7 @@ This is a simple blogging site where you can write blogs and others can read onl
 
 This website was built with Node.js, EJS, HTML, CSS, and the database MongoDB. 
 
-you can see on [Daily Journal]()
+you can see on [Daily Journal](https://daily-journal-blog.cyclic.app/)
 
 # For Authentication Use
   ```
