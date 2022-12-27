@@ -1,0 +1,26 @@
+<%- include('partials/header'); -%>
+    <div id="logreg-forms">
+        <form class="form-signin" action="/login" method="post" >
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Log In</h1>
+            <div class="social-login">
+                <div class="row">
+                    <div class="col">
+                        <a class="btn facebook-btn social-btn">Sign in with Facebook</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn google-btn social-btn" href="/auth/google">Sign in with Google</a>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center"> OR  </p>
+            <input name="username"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            
+            <button class="btn btn-success w-100" type="submit"><i class="fas fa-sign-in-alt"></i> Log In</button>
+            <a href="#" id="forgot_pswd">Forgot password?</a>
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+            <a href="/signin" class="btn btn-primary w-100" id="btn-signup" style="color: #fff;"><i class="fas fa-user-plus"></i> Sign up New Account</a>
+        </form>
+    </div>
+<%- include('partials/footer'); -%> 

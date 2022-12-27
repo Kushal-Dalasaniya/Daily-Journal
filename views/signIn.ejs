@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<% if(errorMassge){ %>
+    <div class="alert alert-danger" role="alert">
+        <%=errorMassge %>
+    </div>
+<%}%>
+
+<div id="logreg-forms">
+    <form action="/register" method="post" class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+      <div class="social-login" style="display: grid;">
+          <a class="btn facebook-btn social-btn" type="button" style="justify-self: center;" href="#"><span> Sign up with Facebook</span> </a>
+      </div>
+      <div class="social-login" style="display: grid;">
+          <a class="btn google-btn social-btn" type="button" style="justify-self: center;" href="/auth/google"><span> Sign up with Google+</span> </a>
+      </div>
+      
+      <p style="text-align:center">OR</p>
+
+      <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
+      <input name="username" type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
+      <input name="password" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+      <!-- <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus=""> -->
+
+      <button class="btn btn-primary w-100" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+    </form>
+    <br>
+</div>
+
+<%- include('partials/footer'); -%>

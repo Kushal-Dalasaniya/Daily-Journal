@@ -1,0 +1,25 @@
+<%- include('partials/header'); -%>
+    <h1><%=Title%></h1>
+    <p><%=Contant%></p>
+    <br>
+
+   <%if(!fromHome){%>
+        <div class="row">
+            <div class="col">
+            <form action="/update/<%=ID%>" method="get">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
+            </div>
+            <div class="col">
+            <form action="/posts/<%=ID%>" method="post">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    <%}%>
+
+<%- include('partials/footer'); -%>
