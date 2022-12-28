@@ -14,7 +14,6 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.17.3",
-    "lodash": "^4.17.21",
     "mongoose": "^6.7.2",
     "mongoose-findorcreate": "^3.0.0",
     "passport": "^0.6.0",

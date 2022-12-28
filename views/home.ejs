@@ -1,18 +1,21 @@
 <%- include('partials/header'); -%>
     <h1><%=title%></h1>
-
+    <br>
     <% arr.forEach(function(ele){ %>
-        <div class="con"> 
-            <h1><%=ele.title%></h1>
-            <p><%= ele.contant.substring(1, 100) + "... " %>
+        <div class="card">
+            <h5 class="card-header"><%=ele.title%></h5>
+            <div class="card-body">
+                <p class="card-text"><%- ele.contant.substring(1, 700) + "  ....." %></p>
+
                 <% if(title=="Home"){ %>
-                    <a href="/Home/<%=ele._id%>">Read more</a>
+                    <a type="button" class="btn btn-outline-secondary" href="/Home/<%=ele._id%>">Read more</a>
                 <%}%>
                 <% if(title!="Home") {%>
-                    <a href="/posts/<%=ele._id%>">Read more</a>
+                    <a type="button" class="btn btn-outline-secondary" href="/posts/<%=ele._id%>">Read more</a>
                 <%}%>
-            </p>
-        </div>
+            </div>
+          </div>
+          <br>
     <% }); %>
 
 <%- include('partials/footer'); -%>

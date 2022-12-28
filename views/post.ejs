@@ -1,9 +1,10 @@
 <%- include('partials/header'); -%>
-    <h1><%=Title%></h1>
-    <p><%=Contant%></p>
+    <h1 style="text-align: center;"><%=Title%></h1>
     <br>
-
-   <%if(!fromHome){%>
+    <%-Contant%>
+    <!-- <textarea class="form-control" id="mytextarea" name="postBody" ><%=Contant%></textarea> -->
+    <br>
+    <%if(!fromHome){%>
         <div class="row">
             <div class="col">
             <form action="/update/<%=ID%>" method="get">
@@ -13,13 +14,34 @@
             </form>
             </div>
             <div class="col">
-            <form action="/posts/<%=ID%>" method="post">
+            <!-- <form action="/posts/<%=ID%>" method="post"> -->
                 <div class="d-grid gap-2">
-                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                    <button class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                 </div>
-            </form>
+            <!-- </form> -->
             </div>
         </div>
     <%}%>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure to delete this Blog ?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- <div class="modal-body">
+            Are you sure to delete this Blog ?
+            </div> -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <form action="/posts/<%=ID%>" method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
 
 <%- include('partials/footer'); -%>
