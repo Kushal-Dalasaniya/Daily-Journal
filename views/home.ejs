@@ -5,8 +5,11 @@
         <div class="card">
             <h5 class="card-header"><%=ele.title%></h5>
             <div class="card-body">
-                <p class="card-text"><%- ele.contant.substring(1, 700) + "  ....." %></p>
-
+                <div style="max-height: 150px;
+                            overflow: hidden;">
+                    <%-ele.contant%>
+                </div>
+                <br>
                 <% if(title=="Home"){ %>
                     <a type="button" class="btn btn-outline-secondary" href="/Home/<%=ele._id%>">Read more</a>
                 <%}%>
